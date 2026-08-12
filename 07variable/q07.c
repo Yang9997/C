@@ -12,31 +12,30 @@ int main(void)
         case '+':
             low = number2 * number4;
             high = number1 * number4 + number2 * number3;
-            printf("The sum is %d/%d\n", high, low);
             break;
         case '-':
             low = number2 * number4;
             high = number1 * number4 - number2 * number3;
-            printf("The subtract is %d/%d\n", high, low);
             break;
         case '*':
             low = number2 * number4;
             high = number1 * number3;
-            printf("The multiple is %d/%d.\n", high, low);
             break;
         case '/':
             low = number2 * number3;
             high = number1 * number4;
             break;
     }
+    printf("high = %d, low = %d\n", high, low);
     int n = low;
     int m = high;
     while (n != 0)
     {
-        int tmp = n % m;
-        n = m;
+        int tmp = m % n;
         m = n;
+        n = tmp;
     }
+    printf("m = %d, n = %d\n", m, n);
     high /= m;
     low /= m;
     switch (ch)
